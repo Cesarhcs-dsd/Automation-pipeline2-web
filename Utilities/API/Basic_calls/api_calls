@@ -1,0 +1,6 @@
+import requests
+import json
+
+class api_calls :
+    
+    def get_request()

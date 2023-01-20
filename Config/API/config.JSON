@@ -1,0 +1,8 @@
+{
+    "DEV":{
+        "Base_url": "https://pipeline.dsdappsdev.com/login"
+    },
+    "QA":{
+        "Base_url": ""
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "DEV":{
+        "loguin_page": "https://pipeline.dsdappsdev.com/login"
+    },
+    "QA":{
+        "loguin_page": ""
+    }
+}
