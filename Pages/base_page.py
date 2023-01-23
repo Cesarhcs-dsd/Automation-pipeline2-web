@@ -1,12 +1,10 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from Driverfactory.Actions.element_actions import BaseElement
-from Driverfactory.Actions.elements_actions import BaseElements
 from .locator import Locator
 
 
-class BasePage():
+class Base_Page():
     url = None
 
     def __init__(self, driver):

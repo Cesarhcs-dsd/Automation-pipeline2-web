@@ -1,23 +1,27 @@
-from Driverfactory.driver_manager import driver_manager
+from Driverfactory.driver_manager import Driver_Manager
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-class chrome_driver_manager(driver_manager):
-
-    def stop_service():
-        if Service != None and Service.assert_process_still_running:
-            Service.stop
+class Chrome_Driver_Manager(Driver_Manager):
 
 
     def create_driver():
-        chrome_options = webdriver.ChromeOptions()
-        ##chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            chrome_options=chrome_options
+            service=Chrome_Driver_Manager.get_chrome_service() ,
+            chrome_options= Chrome_Driver_Manager.get_chrome_options() 
         )
         driver.implicitly_wait(10)
         return driver
+    
+    def get_chrome_options() :
+        chrome_options = webdriver.ChromeOptions()
+        return chrome_options
+    
+    def get_chrome_service() :
+        service=Service(ChromeDriverManager().install())
+        return service
+
+    
    
 

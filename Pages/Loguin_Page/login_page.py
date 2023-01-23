@@ -1,13 +1,14 @@
 import time
 from selenium.webdriver.common.by import By
-from Driverfactory.Actions.element_actions import BaseElement
-from Pages.base_page import BasePage
+from Utilities.UI.webdriver_actions.element_actions import Element_Actions
+from Utilities.UI.webdriver_actions.elements_actions  import Elements_Actions
+from Pages.base_page import Base_Page
 from Pages.locator import Locator
-from .login_page_elements import login_page_elements
+from .login_page_elements import Login_Page_Elements
 from Config.UI.config_path import page_path_configuration
 from hamcrest import assert_that, equal_to
 
-class login_page(login_page_elements):
+class Login_Page(Login_Page_Elements):
     
     def __init__(self, driver):
         super().__init__(driver)

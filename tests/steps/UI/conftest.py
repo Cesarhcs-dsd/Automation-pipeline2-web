@@ -2,7 +2,7 @@ import time
 from pytest import fixture,yield_fixture
 from selenium import webdriver
 from Driverfactory.driver_manage_factory import driver_manage_factory
-from Pages.Loguin_Page.login_page import login_page
+from Pages.Loguin_Page.login_page import Login_Page
 
 
 def pytest_addoption(parser):
@@ -21,10 +21,14 @@ def browser(request):
 
 @fixture(scope='session')
 def browserdri(browser):
-    drvr = driver_manage_factory.driver_manager_browsers(browser)
-    yield drvr
-    drvr.quit()
+    selenium_manager = driver_manage_factory.driver_manager_browsers(browser)
+    driver = selenium_manager.create_driver()
+    yield driver
+    #driver.quit()
+    #driver.close()
+    selenium_manager.quit_driver(driver)
+    selenium_manager.stop_service()
     
 @fixture(scope='session')
 def page(browserdri):
-    return login_page(browserdri)
+    return Login_Page(browserdri)
